@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: development
+    environment: ${{ 'development' || 'staging' || 'production' }}
     strategy:
       fail-fast: false
       matrix:
@@ -35,7 +35,7 @@ jobs:
     - name: Lint with flake8, black, isort
       run: |
         scripts/ci/lint.sh
-        
+
     - name: Test with pytest
       run: |
         scripts/ci/test.sh
