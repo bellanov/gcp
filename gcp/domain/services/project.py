@@ -1,6 +1,5 @@
 """Project Service."""
 
-import googleapiclient.discovery
 from google.cloud import resourcemanager_v3
 
 from gcp.domain.models.project import Project
