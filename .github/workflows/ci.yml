@@ -13,14 +13,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    # environment: ${{ 'development' || 'staging' || 'production' }}
+    environment: development
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.12", "3.13", "3.14"]
 
     env:
-      GCP_PROJECT_ID: ${{ vars.GCP_PROJECT }}
+      GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
       GCP_ORGANIZATION_ID: ${{ vars.GCP_ORGANIZATION_ID }}
       GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 
