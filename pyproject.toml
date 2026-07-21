@@ -27,10 +27,13 @@ dev = [
     "black",
     "coverage",
     "flake8",
+    "google-api-python-client",
+    "google-cloud-resource-manager",
     "ipython",
     "isort",
     "mypy",
-    "pytest",
+    "pydantic",
+    "pytest", 
 ]
 
 [tool.hatch.build.targets.wheel]
