@@ -3,9 +3,9 @@
 # Format Code Base.
 
 echo "Formatting imports..."
-isort samples
+isort gcp
 isort tests
 
 echo "Formatting code base..."
-black samples
+black gcp
 black tests
