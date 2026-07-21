@@ -2,7 +2,6 @@
 #
 # Lint Code Base.
 
-# Lint Code
 echo "Linting code base..."
 
 # stop the build if there are Python syntax errors or undefined names

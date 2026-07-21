@@ -1,0 +1,60 @@
+{
+  "folders": [
+    {
+      "name": "Development",
+      "folders": [
+        {
+          "name": "Frontend"
+        },
+        {
+          "name": "Backend"
+        },
+        {
+          "name": "Database"
+        }
+      ]
+    },
+    {
+      "name": "Staging",
+      "folders": [
+        {
+          "name": "Frontend"
+        },
+        {
+          "name": "Backend"
+        },
+        {
+          "name": "Database"
+        }
+      ]
+    },
+    {
+      "name": "Production",
+      "folders": [
+        {
+          "name": "Frontend"
+        },
+        {
+          "name": "Backend"
+        },
+        {
+          "name": "Database"
+        }
+      ]
+    },
+    {
+      "name": "Shared",
+      "folders": [
+        {
+          "name": "Networking"
+        },
+        {
+          "name": "Security"
+        },
+        {
+          "name": "Monitoring"
+        }
+      ]
+    }
+  ]
+}
