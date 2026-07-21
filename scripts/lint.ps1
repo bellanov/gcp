@@ -1,8 +1,5 @@
-#!/bin/bash
 #
 # Lint Code Base.
-
-set -e
 
 echo "Linting code base..."
 
