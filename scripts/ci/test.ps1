@@ -1,12 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env pwsh
 #
 # Execute unit tests.
 
-echo "Executing Unit Tests..."
-coverage run -m pytest tests/
+param(
+    [string]$TestType = "unit"
+)
 
-echo "Generating Report..."
+$ErrorActionPreference = "Stop"
+
+Write-Host "Executing Unit Tests..."
+coverage run -m pytest -m "$TestType" tests/
+
+Write-Host "Generating Report..."
 coverage report -m
 
-echo "Build HTML Report..."
+Write-Host "Build HTML Report..."
 coverage html

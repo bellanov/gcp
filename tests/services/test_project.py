@@ -15,7 +15,7 @@ def test_get_project():
     assert result.name == project_name  # Replace with the expected project name
 
 
-@pytest.mark.unit
+@pytest.mark.integration
 def test_get_folders():
     """Test folder retrieval."""
     organization_id = os.getenv("GCP_ORGANIZATION_ID")
