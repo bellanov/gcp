@@ -11,8 +11,7 @@ class Project(CamelCaseModel):
     """Represents a project.
 
     Attributes:
-        name: The name of the project.
         id: The ID of the project.
     """
 
-    name: str = Field(..., pattern=GCP_PROJECT)
+    id: str = Field(..., pattern=GCP_PROJECT)
