@@ -6,13 +6,14 @@ TEST_TYPE=${1:-"unit"}
 
 set -e
 
-markers=""
-
 case "$TEST_TYPE" in
   unit)
     markers="unit"
     ;;
   integration)
+    markers="integration"
+    ;;
+  all)
     markers="unit or integration"
     ;;
   *)

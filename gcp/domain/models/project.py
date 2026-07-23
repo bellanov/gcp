@@ -14,4 +14,6 @@ class Project(CamelCaseModel):
         id: The ID of the project.
     """
 
-    id: str = Field(..., pattern=GCP_PROJECT)
+    # id: str = Field(..., pattern=GCP_PROJECT)
+    name: str = Field(..., pattern=GCP_PROJECT)
+    # number: int
