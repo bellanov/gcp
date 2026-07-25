@@ -18,18 +18,13 @@ def get_folder(id: str, folder_name: str) -> Folder:
     return Folder(id=id, name=folder_name)
 
 
-def get_folders(organization_id: str):
-    # Create a client
+def get_folders_for_organization(organization_id: str):
+    """Get all folders for an organization."""
     client = resourcemanager_v3.FoldersClient()
-
-    # Initialize request argument(s)
     request = resourcemanager_v3.ListFoldersRequest(
         parent=f"organizations/{organization_id}",
     )
-
-    # Make the request
     page_result = client.list_folders(request=request)
 
-    # Handle the response
     for response in page_result:
         print(response)
