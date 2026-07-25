@@ -100,7 +100,7 @@ class TestFolder:
     def test_folder_empty_name(self):
         """Test folder creation with empty name."""
         with pytest.raises(ValidationError):
-            folder = Folder(id="my-folder", name="")
+            Folder(id="my-folder", name="")
 
     def test_folder_name_with_valid_chars(self):
         """Test folder name supports spaces, underscores, and hyphens."""

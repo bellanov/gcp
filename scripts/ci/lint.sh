@@ -11,7 +11,7 @@ flake8 gcp --count --select=E9,F63,F7,F82 --show-source --statistics
 # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 flake8 gcp --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 # Check for code formatting issues
-black --check gcp
+black --check --target-version py314 gcp
 isort --check gcp
 
 echo "Linting tests..."
@@ -21,5 +21,5 @@ flake8 tests --count --select=E9,F63,F7,F82 --show-source --statistics
 # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 flake8 tests --count --max-complexity=10 --max-line-length=127 --statistics
 # Check test formatting issues
-black --check tests
+black --check --target-version py314 tests
 isort --check tests

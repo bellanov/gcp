@@ -7,5 +7,5 @@ isort gcp
 isort tests
 
 echo "Formatting code base..."
-black gcp 
-black tests
+black --target-version py314 gcp 
+black --target-version py314 tests
