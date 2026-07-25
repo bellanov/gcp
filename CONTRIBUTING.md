@@ -29,8 +29,8 @@ First, a local project environment needs to be created, then the project's modul
 1. Clone the repository.
 
    ```sh
-   git clone https://github.com/bellanov/pythonic-programming.git
-   cd pythonic-programming
+   git clone https://github.com/bellanov/gcp.git
+   cd gcp
    ```
 
 2. Create a virtual environment. 
