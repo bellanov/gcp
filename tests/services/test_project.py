@@ -10,6 +10,10 @@ from gcp.domain.services.project import get_project
 @pytest.mark.unit
 def test_get_project():
     """Test project retrieval."""
-    project_id = os.getenv("GCP_PROJECT_ID")
-    result = get_project(project_id=project_id)
-    assert result.id == project_id
+    result = get_project(
+        project_id=os.getenv("GCP_PROJECT_ID"),
+        name=os.getenv("GCP_PROJECT_NAME"),
+        organization_id=os.getenv("GCP_ORGANIZATION_ID"),
+    )
+    assert result.id == os.getenv("GCP_PROJECT_ID")
+    assert result.organization_id == os.getenv("GCP_ORGANIZATION_ID")

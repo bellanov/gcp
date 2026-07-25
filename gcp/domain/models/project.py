@@ -16,4 +16,5 @@ class Project(CamelCaseModel):
     """
 
     id: str = Field(..., pattern=GCP_PROJECT)
+    name: str
     organization_id: str = Field(..., pattern=GCP_PROJECT)
