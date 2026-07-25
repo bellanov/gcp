@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python Package
+name: Unit Tests - staging
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: development
+    environment: staging
     strategy:
       fail-fast: false
       matrix:
