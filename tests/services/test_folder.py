@@ -17,7 +17,9 @@ def test_get_folders():
 @pytest.mark.unit
 def test_get_folder():
     """Test folder retrieval by name."""
-    folder_name = os.getenv("GCP_FOLDER_NAME")
-    result = get_folder(folder_name=folder_name)
-    assert result.id == folder_name
-    assert result.name == folder_name
+    result = get_folder(
+        id=os.getenv("GCP_FOLDER_ID"),
+        folder_name=os.getenv("GCP_FOLDER_NAME"),
+    )
+    assert result.id == os.getenv("GCP_FOLDER_ID")
+    assert result.name == os.getenv("GCP_FOLDER_NAME")
