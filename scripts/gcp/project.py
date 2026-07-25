@@ -2,7 +2,14 @@
 
 import os
 
-from gcp.domain.services.project import get_project, get_folders
+from gcp.domain.services.project import get_project
 
-organization_id = os.getenv("GCP_ORGANIZATION_ID")
-get_folders(organization_id=organization_id)
+print("Retrieving project information...")
+project = get_project(
+    project_id=os.getenv("GCP_PROJECT_ID"),
+    name=os.getenv("GCP_PROJECT_NAME"),
+    organization_id=os.getenv("GCP_ORGANIZATION_ID"),
+)
+print(f"Project ID: {project.id}")
+print(f"Project Name: {project.name}")
+print(f"Organization ID: {project.organization_id}")
