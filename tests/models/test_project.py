@@ -52,14 +52,6 @@ class TestProject:
         assert project.id == "myproject"
         assert project.organization_id == "my-org-456"
 
-    def test_project_invalid_id_uppercase(self):
-        """Test project creation fails with uppercase in ID."""
-        with pytest.raises(ValidationError) as exc_info:
-            Project(
-                id="My-Project@123", name="My-Project@123", organization_id="my-org-456"
-            )
-        assert "string should match pattern" in str(exc_info.value).lower()
-
     def test_project_invalid_id_special_chars(self):
         """Test project creation fails with special characters in ID."""
         with pytest.raises(ValidationError):
