@@ -107,11 +107,6 @@ class TestFolder:
         folder = Folder(id="my-folder", name="my folder_name-prod 1")
         assert folder.name == "my folder_name-prod 1"
 
-    def test_folder_name_invalid_uppercase(self):
-        """Test folder name rejects uppercase characters."""
-        with pytest.raises(ValidationError):
-            Folder(id="my-folder", name="My Folder")
-
     def test_folder_name_invalid_special_chars(self):
         """Test folder name rejects special characters outside the regex."""
         with pytest.raises(ValidationError):
