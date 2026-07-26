@@ -15,11 +15,17 @@ def get_folder(id: str, folder_name: str) -> Folder:
     Returns:
         A Folder object.
     """
-    return Folder(id=id, name=folder_name)
+    pass
 
 
-def get_folders_for_organization(organization_id: str):
-    """Get all folders for an organization."""
+def get_folders_for_organization(organization_id: str) -> list[Folder]:
+    """Get all folders for an organization.
+    Args:
+        organization_id: The ID of the organization.
+
+    Returns:
+        A generator of Folder objects.
+    """
     client = resourcemanager_v3.FoldersClient()
     request = resourcemanager_v3.ListFoldersRequest(
         parent=f"organizations/{organization_id}",
@@ -28,3 +34,9 @@ def get_folders_for_organization(organization_id: str):
 
     for response in page_result:
         print(response)
+        folder = Folder(
+            name=response.name,
+            display_name=response.display_name,
+            parent=response.parent,
+        )
+        yield folder

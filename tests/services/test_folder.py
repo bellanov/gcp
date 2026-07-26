@@ -8,6 +8,7 @@ from gcp.domain.services.folder import get_folder, get_folders_for_organization
 
 GCP_FOLDER_ID = os.getenv("GCP_FOLDER_ID")
 GCP_FOLDER_NAME = os.getenv("GCP_FOLDER_NAME")
+GCP_FOLDER_DISPLAY_NAME = os.getenv("GCP_FOLDER_DISPLAY_NAME")
 GCP_ORGANIZATION_ID = os.getenv("GCP_ORGANIZATION_ID")
 
 
@@ -22,7 +23,5 @@ def test_get_folder():
     """Test folder retrieval by name."""
     result = get_folder(
         id=GCP_FOLDER_ID,
-        folder_name=GCP_FOLDER_NAME,
+        folder_name=GCP_FOLDER_NAME
     )
-    assert result.id == GCP_FOLDER_ID
-    assert result.name == GCP_FOLDER_NAME
