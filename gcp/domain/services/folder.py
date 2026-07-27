@@ -1,7 +1,7 @@
 """Folder Service."""
 
 from google.cloud import resourcemanager_v3
-
+from typing import Generator
 from gcp.domain.models.folder import Folder
 
 
@@ -18,7 +18,7 @@ def get_folder(id: str, folder_name: str) -> Folder:
     pass
 
 
-def get_folders_for_organization(organization_id: str) -> list[Folder]:
+def get_folders_for_organization(organization_id: str) -> Generator[Folder, None, None]:
     """Get all folders for an organization.
     Args:
         organization_id: The ID of the organization.
