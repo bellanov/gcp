@@ -21,7 +21,12 @@ def test_get_folders():
 @pytest.mark.unit
 def test_get_folder():
     """Test folder retrieval by name."""
-    result = get_folder(
-        id=GCP_FOLDER_ID,
-        folder_name=GCP_FOLDER_NAME
-    )
+    result = get_folder(id=GCP_FOLDER_ID, folder_name=GCP_FOLDER_NAME)
+
+
+@pytest.mark.unit
+def test_get_folders_for_organization():
+    """Test get_folders_for_organization returns a generator."""
+    for folder in get_folders_for_organization(GCP_ORGANIZATION_ID):
+        assert folder.name.startswith("folders/")
+        assert folder.display_name is not None
