@@ -21,7 +21,7 @@ def test_get_folders():
 @pytest.mark.unit
 def test_get_folder():
     """Test folder retrieval by name."""
-    result = get_folder(id=GCP_FOLDER_ID, folder_name=GCP_FOLDER_NAME)
+    get_folder(id=GCP_FOLDER_ID, folder_name=GCP_FOLDER_NAME)
 
 
 @pytest.mark.unit
