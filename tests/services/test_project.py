@@ -7,7 +7,7 @@ import pytest
 from gcp.domain.services.project import get_project
 
 
-@pytest.mark.unit
+@pytest.mark.integration
 def test_get_project():
     """Test project retrieval."""
     result = get_project(

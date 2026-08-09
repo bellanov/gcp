@@ -10,11 +10,14 @@ case "$TEST_TYPE" in
   unit)
     markers="unit"
     ;;
+  functional)
+    markers="functional"
+    ;;
   integration)
     markers="integration"
     ;;
   all)
-    markers="unit or integration"
+    markers="unit or functional or integration"
     ;;
   *)
     echo "Unknown test type: $TEST_TYPE"

@@ -45,7 +45,7 @@ First, a local project environment needs to be created, then the project's modul
    source .venv/bin/activate
 
    # Install all dependencies (runtime and development)
-   pip install -e ".[dev]"
+   scripts/ci/install.sh
 
    # Deactivate Virtual Environment
    deactivate
