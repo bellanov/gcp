@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Create Deployment Service Account.
+# Create or update Deployment Service Account permissions.
 
 gcloud config set project $GCP_PROJECT
 
