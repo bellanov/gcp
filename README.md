@@ -36,9 +36,9 @@ gcp
 
 | Environment | Description                                                   |
 | ----------- | ------------------------------------------------------------- |
-| _diagrams_  | Contains project architecture diagrams.                       |
-| _docs_      | Contains project documentation.                               |
-| _gcp_       | Contains project source code for GCP tooling.                 |
-| _scripts_   | Contains utility scripts for managing the project.            |
-| _terraform_ | Contains Terraform configurations for different environments. |
-| _tests_     | Contains unit and integration tests for the project.          |
+| _diagrams_  | Contains project architecture **diagrams**.                       |
+| _docs_      | Contains project **documentation**.                               |
+| _gcp_       | Contains project **source code** for GCP tooling.                 |
+| _scripts_   | Contains **utility scripts** for managing the project.            |
+| _terraform_ | Contains **Terraform configurations** for different environments. |
+| _tests_     | Contains **unit and integration tests** for the project.          |
