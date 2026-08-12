@@ -2,9 +2,8 @@
 
 from typing import Generator
 
-from google.cloud import resourcemanager_v3
-
 from gcp.domain.models.folder import Folder
+from google.cloud import resourcemanager_v3
 
 
 def get_folder(id: str, folder_name: str) -> Folder:
