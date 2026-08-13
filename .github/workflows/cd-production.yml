@@ -61,10 +61,9 @@ jobs:
         uses: actions/checkout@v7
 
       # Authenticate with Google Cloud
-      # TODO: Ensure that the GCP_CREDENTIALS secret is set in the repository settings
-      # - uses: 'google-github-actions/auth@v3'
-      #   with:
-      #     credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - uses: 'google-github-actions/auth@v3'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
