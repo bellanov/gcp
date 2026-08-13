@@ -1,15 +1,7 @@
 
-terraform {
-  backend "gcs" {
-    bucket = "terraform-state"
-  }
-
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "7.44.0"
-    }
-  }
+provider "google" {
+  project = "gcp-development-503118"
+  region  = "us-central1"
 }
 
 resource "google_service_account" "service_account" {
