@@ -14,6 +14,8 @@ The project _structure_ is summarized below.
 
 ```sh
 gcp
+├── .github
+│   └── workflows
 ├── diagrams
 ├── docs
 ├── gcp
@@ -34,8 +36,9 @@ gcp
     └── services
 ```
 
-| Environment | Description                                                   |
-| ----------- | ------------------------------------------------------------- |
+| Environment | Description                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| _.github_   | Contains GitHub **workflows** for CI/CD.                          |
 | _diagrams_  | Contains project architecture **diagrams**.                       |
 | _docs_      | Contains project **documentation**.                               |
 | _gcp_       | Contains project **source code** for GCP tooling.                 |
