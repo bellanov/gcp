@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "terraform-state"
+    bucket = "terraform-state-503118"
   }
 
   required_providers {
