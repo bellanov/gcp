@@ -30,7 +30,7 @@
 #     - https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 #
 # 3. The workflow will automatically use GOOGLE_APPLICATION_CREDENTIALS environment variable for GCP authentication.
-#   The service account key should be stored as a GitHub secret named GCP_SA_KEY.
+#   The service account key should be stored as a GitHub secret named GCP_CREDENTIALS.
 
 name: "🚀 CD: Development"
 
