@@ -1,8 +1,14 @@
 
 terraform {
   backend "gcs" {
-    bucket = "my-terraform-state-bucket"
-    prefix = "prod"
+    bucket = "terraform-state"
+  }
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "7.44.0"
+    }
   }
 }
 
