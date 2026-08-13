@@ -30,9 +30,9 @@
 #     - https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 #
 # 3. The workflow will automatically use GOOGLE_APPLICATION_CREDENTIALS environment variable for GCP authentication.
-#   The service account key should be stored as a GitHub secret named GCP_SA_KEY.
+#   The service account key should be stored as a GitHub secret named GCP_CREDENTIALS.
 
-name: "🚀 CD: Deployment"
+name: "🚀 CD: Staging"
 
 on:
   push:
@@ -49,9 +49,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: staging
 
-    env:
-      GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
-
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -64,10 +61,9 @@ jobs:
         uses: actions/checkout@v7
 
       # Authenticate with Google Cloud
-      - name: Authenticate to Google Cloud
-        run: |
-          echo "${{ secrets.GCP_SA_KEY }}" > /tmp/gcp-key.json
-          chmod 600 /tmp/gcp-key.json
+      - uses: 'google-github-actions/auth@v3'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
