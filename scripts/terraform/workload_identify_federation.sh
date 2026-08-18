@@ -10,11 +10,26 @@ gcloud iam workload-identity-pools create "github-actions-pool" \
     --location="global" \
     --display-name="GitHub Actions Pool"
 
-# Add the GitHub OIDC Provider to the Pool
-gcloud iam workload-identity-pools providers create-oidc github-provider \
+# Add or update the GitHub OIDC Provider in the Pool
+if gcloud iam workload-identity-pools providers describe github-provider \
     --location="global" \
     --workload-identity-pool="github-actions-pool" \
-    --display-name="GitHub Provider" \
-    --issuer-uri="https://token.actions.githubusercontent.com/" \
-    --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
-    --attribute-condition="assertion.repository_owner=='bellanov' && assertion.repository=='bellanov/google'"
+    --project="$GCP_PROJECT" >/dev/null 2>&1; then
+    gcloud iam workload-identity-pools providers update-oidc github-provider \
+        --location="global" \
+        --workload-identity-pool="github-actions-pool" \
+        --project="$GCP_PROJECT" \
+        --attribute-mapping="google.subject=assertion.sub" \
+        --attribute-condition="assertion.repository_owner=='bellanov' && assertion.repository=='bellanov/google'"
+    echo "WIF provider updated."
+else
+    gcloud iam workload-identity-pools providers create-oidc github-provider \
+        --location="global" \
+        --workload-identity-pool="github-actions-pool" \
+        --project="$GCP_PROJECT" \
+        --display-name="GitHub Provider" \
+        --issuer-uri="https://token.actions.githubusercontent.com/" \
+        --attribute-mapping="google.subject=assertion.sub" \
+        --attribute-condition="assertion.repository_owner=='bellanov' && assertion.repository=='bellanov/google'"
+    echo "WIF provider created."
+fi

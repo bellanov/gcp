@@ -40,5 +40,5 @@ gcloud iam service-accounts add-iam-policy-binding \
     "github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com" \
     --project="$GCP_PROJECT" \
     --role="roles/iam.workloadIdentityUser" \
-    --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-actions-pool/attribute.repository/bellanov/google"
+    --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-actions-pool/*"
 echo "Workload Identity User binding applied to service account."
