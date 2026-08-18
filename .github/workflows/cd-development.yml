@@ -1,36 +1,4 @@
-# This workflow installs the latest version of Terraform CLI and authenticates with Google Cloud using GOOGLE_APPLICATION_CREDENTIALS.
-# On pull request events, this workflow will run `terraform init`, `terraform fmt`, and `terraform plan`.
-# On push events to the "main" branch, `terraform apply` will be executed.
-#
-# Documentation for `hashicorp/setup-terraform` is located here: https://github.com/hashicorp/setup-terraform
-#
-# To use this workflow, you will need to complete the following setup steps.
-#
-# 1. Create a `main.tf` file in the root of this repository with the GCS backend and one or more resources defined.
-#   Example `main.tf`:
-#     # The configuration for the `gcs` backend.
-#     terraform {
-#       backend "gcs" {
-#         bucket = "my-terraform-state-bucket"
-#         prefix = "prod"
-#       }
-#     }
-#
-#     # Example GCP resource.
-#     resource "google_compute_instance" "example" {
-#       name         = "my-instance"
-#       machine_type = "n1-standard-1"
-#       zone         = "us-central1-a"
-#     }
-#
-#
-# 2. Create a Google Cloud Service Account with appropriate Terraform permissions and store its JSON key as a GitHub secret (e.g. GCP_SA_KEY).
-#   Documentation:
-#     - https://cloud.google.com/docs/authentication/getting-started
-#     - https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
-#
-# 3. The workflow will automatically use GOOGLE_APPLICATION_CREDENTIALS environment variable for GCP authentication.
-#   The service account key should be stored as a GitHub secret named GCP_CREDENTIALS.
+# Continuous Deployment (CD) workflow for the "development" environment using Terraform and GitHub Actions.
 
 name: "🚀 CD: Development"
 
