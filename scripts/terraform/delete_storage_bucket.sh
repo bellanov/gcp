@@ -2,4 +2,4 @@
 #
 # Delete the Google Cloud Storage bucket for Terraform state.
 
-gcloud storage buckets delete gs://terraform-state-503118
+gcloud storage buckets delete gs://${GCP_PROJECT}
