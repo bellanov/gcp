@@ -7,6 +7,8 @@ gcloud config set project $GCP_PROJECT
 ROLES="roles/iam.serviceAccountAdmin
 roles/storage.admin"
 
+PROJECT_NUMBER=$(gcloud projects describe $GCP_PROJECT --format='value(projectNumber)')
+
 # Check if the service account exists, if not create it
 if ! gcloud iam service-accounts describe "github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com" --project $GCP_PROJECT >/dev/null 2>&1; then
     gcloud iam service-accounts create github-actions-deploy-sa \
@@ -33,14 +35,10 @@ for role in $ROLES; do
     fi
 done
 
-# Check if the service account has the required roles, if not grant them
-if ! gcloud projects add-iam-policy-binding $GCP_PROJECT \
-    --member="serviceAccount:github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com" \
-    --role="roles/storage.admin" >/dev/null 2>&1; then
-    gcloud projects add-iam-policy-binding $GCP_PROJECT \
-        --member="serviceAccount:github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com" \
-        --role="roles/storage.admin"
-    echo "Service account granted the role roles/storage.admin"
-else
-    echo "Service account already has the role roles/storage.admin"
-fi
+# Allow the WIF principal set to impersonate this service account
+gcloud iam service-accounts add-iam-policy-binding \
+    "github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com" \
+    --project="$GCP_PROJECT" \
+    --role="roles/iam.workloadIdentityUser" \
+    --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github-actions-pool/attribute.repository/bellanov/google"
+echo "Workload Identity User binding applied to service account."

@@ -16,5 +16,5 @@ gcloud iam workload-identity-pools providers create-oidc github-provider \
     --workload-identity-pool="github-actions-pool" \
     --display-name="GitHub Provider" \
     --issuer-uri="https://token.actions.githubusercontent.com/" \
-    --attribute-mapping="google.subject=assertion.sub" \
+    --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
     --attribute-condition="assertion.repository_owner=='bellanov' && assertion.repository=='bellanov/google'"
