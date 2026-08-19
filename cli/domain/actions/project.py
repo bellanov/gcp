@@ -2,7 +2,7 @@
 
 import os
 
-from gcp.domain.services.project import get_project
+from cli.domain.services.project import get_project
 
 print("Retrieving project information...")
 project = get_project(
