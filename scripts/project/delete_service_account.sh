@@ -2,5 +2,7 @@
 #
 # Delete Deployment Service Account.
 
+SERVICE_ACCOUNT=$1
+
 gcloud config set project $GCP_PROJECT
-gcloud iam service-accounts delete github-actions-deploy-sa@${GCP_PROJECT}.iam.gserviceaccount.com
+gcloud iam service-accounts delete "$SERVICE_ACCOUNT" --project "$GCP_PROJECT"
