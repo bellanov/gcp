@@ -41,8 +41,8 @@ jobs:
         uses: hashicorp/setup-terraform@v4
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-      - name: Gcloud
-        run: gcloud auth
+      - name: Troubleshoot GCP Authentication
+        run: gcloud projects list
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
