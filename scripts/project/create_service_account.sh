@@ -6,9 +6,6 @@ gcloud config set project $GCP_PROJECT
 
 TIMESTAMP=$(date +%s)
 
-ROLES="roles/iam.serviceAccountTokenCreator
-roles/storage.admin"
-
 if gcloud iam service-accounts create "github-actions-${TIMESTAMP}" \
         --description="Deployment service account for GitHub Actions" \
         --display-name="GitHub Actions Deployment Service Account"; then

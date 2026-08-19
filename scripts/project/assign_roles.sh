@@ -6,7 +6,7 @@ gcloud config set project $GCP_PROJECT
 
 TIMESTAMP=$(date +%s)
 
-ROLES="roles/iam.serviceAccountTokenCreator
+ROLES="roles/iam.admin
 roles/storage.admin"
 
 SERVICE_ACCOUNT=$1
@@ -16,9 +16,9 @@ for role in $ROLES; do
     if ! gcloud projects get-iam-policy $GCP_PROJECT \
         --flatten="bindings[].members" \
         --format="table(bindings.role)" \
-        --filter="bindings.members:${SERVICE_ACCOUNT}" | grep -q "$role"; then
+        --filter="bindings.members:${SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" | grep -q "$role"; then
         gcloud projects add-iam-policy-binding $GCP_PROJECT \
-            --member="serviceAccount:${SERVICE_ACCOUNT}" \
+            --member="serviceAccount:${SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
             --role="$role"
         echo "Service account granted the role $role"
     else
