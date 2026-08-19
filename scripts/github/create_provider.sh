@@ -20,6 +20,6 @@ else
         --display-name="GitHub Provider" \
         --issuer-uri="https://token.actions.githubusercontent.com/" \
         --attribute-mapping="google.subject=assertion.sub" \
-        --attribute-condition="assertion.repository_owner=='bellanov'"
+        --attribute-condition="assertion.repository=='bellanov/google'"
     echo "WIF provider created."
 fi
