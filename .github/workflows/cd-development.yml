@@ -34,7 +34,7 @@ jobs:
         with:
           create_credentials_file: true
           workload_identity_provider: 'projects/59255497383/locations/global/workloadIdentityPools/github-actions-pool-1787166615/providers/github-provider'
-          service_account: 'github-actions-1787173796@gcp-development-503118.iam.gserviceaccount.com'
+          service_account: 'github-actions-1787174527@gcp-development-503118.iam.gserviceaccount.com'
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
