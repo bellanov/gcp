@@ -65,4 +65,4 @@ In this setup, the Workload Identity Pool has direct IAM permissions on Google C
 | Workflow | Description |
 | -------- | ----------------------------------------------------------------- |
 | _cli-ci-\<environment\>_     | Continuous Integration workflow for testing and validating the `cli`.  |
-| _cd-\<environment\>_     | Continuous Deployment workflow for Terraform deployments.  |
+| _cd-\<environment\>_     | Continuous Deployment workflow for *Terraform* deployments.  |
