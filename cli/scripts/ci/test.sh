@@ -23,7 +23,7 @@ case "$TEST_TYPE" in
 esac
 
 echo "Executing Tests..."
-coverage run -m pytest -m "$markers" tests/
+coverage run -m pytest -m "$markers" cli/tests/
 
 
 echo "Generating Report..."
