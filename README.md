@@ -8,9 +8,9 @@ The project is deployed across multiple *environments*, each of which has its ow
 
 | Environment | Description |
 | ----------- | ----------------------------------------------------------------- |
-| development | Development environment for testing and experimentation.          |
-| staging     | Staging environment for pre-production testing.                   |
-| production  | Production environment for live deployment.                       |
+| _development_ | Development environment for testing and experimentation.          |
+| _staging_   | Staging environment for pre-production testing.                   |
+| _production_| Production environment for live deployment.                       |
 
 *Terraform* configurations are located in the `terraform/environments` directory.
 
