@@ -4,7 +4,7 @@ Tools to bootstrap development on _Google Cloud Platform (GCP)_.
 
 # Environments
 
-Development, staging, and production *environments* are supported. Each environment has its own Terraform configuration.
+The project is deployed across multiple environments, each of which has its own Terraform configuration.
 
 | Environment | Description |
 | ----------- | ----------------------------------------------------------------- |
@@ -57,3 +57,8 @@ gcp
 | _scripts_   | Contains **utility scripts** for managing the project.            |
 | _terraform_ | Contains **Terraform configurations** for different environments. |
 | _tests_     | Contains **unit and integration tests** for the project.          |
+
+
+# Workload Identity Federation
+
+The project uses *[Direct Workload Identity Federation](https://github.com/google-github-actions/auth?tab=readme-ov-file#preferred-direct-workload-identity-federation)* to manage identities and access across different environments.
