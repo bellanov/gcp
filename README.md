@@ -2,6 +2,22 @@
 
 Tools to bootstrap development on _Google Cloud Platform (GCP)_.
 
+# Environments
+
+Development, staging, and production *environments* are supported. Each environment has its own Terraform configuration.
+
+| Environment | Description |
+| ----------- | ----------------------------------------------------------------- |
+| development | Development environment for testing and experimentation.          |
+| staging     | Staging environment for pre-production testing.                   |
+| production  | Production environment for live deployment.                       |
+
+*Terraform* configurations are located in the `terraform/environments` directory.
+
+- development
+- staging
+- production
+
 # Architecture
 
 The project _architecture_ is summarized below.

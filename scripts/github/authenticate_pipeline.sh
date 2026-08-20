@@ -21,7 +21,6 @@ fi
 # Grant the WIF principal permission to impersonate the service account
 if gcloud iam service-accounts add-iam-policy-binding \
     "$SERVICE_ACCOUNT" \
-    --project="$GCP_PROJECT" \
     --role="roles/iam.serviceAccountTokenCreator" \
     --member="$MEMBER"; then
     echo "Workload Identity User binding applied."
