@@ -2,7 +2,7 @@
 
 from typing import Generator
 
-from gcp.domain.models.folder import Folder
+from cli.domain.models.folder import Folder
 from google.cloud import resourcemanager_v3
 
 

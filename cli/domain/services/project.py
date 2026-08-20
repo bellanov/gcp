@@ -2,7 +2,7 @@
 
 # from google.cloud import resourcemanager_v3
 
-from gcp.domain.models.project import Project
+from cli.domain.models.project import Project
 
 
 def get_project(project_id: str, name: str, organization_id: str) -> Project:

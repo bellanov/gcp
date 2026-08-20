@@ -2,7 +2,7 @@
 
 import os
 
-from gcp.domain.services.folder import get_folders_for_organization
+from cli.domain.services.folder import get_folders_for_organization
 
 # TODO: Integrate rich for more user-friendly output
 

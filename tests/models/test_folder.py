@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from gcp.domain.models.folder import Folder
+from cli.domain.models.folder import Folder
 
 
 @pytest.mark.unit

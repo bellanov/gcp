@@ -1,36 +1,4 @@
-# This workflow installs the latest version of Terraform CLI and authenticates with Google Cloud using GOOGLE_APPLICATION_CREDENTIALS.
-# On pull request events, this workflow will run `terraform init`, `terraform fmt`, and `terraform plan`.
-# On push events to the "main" branch, `terraform apply` will be executed.
-#
-# Documentation for `hashicorp/setup-terraform` is located here: https://github.com/hashicorp/setup-terraform
-#
-# To use this workflow, you will need to complete the following setup steps.
-#
-# 1. Create a `main.tf` file in the root of this repository with the GCS backend and one or more resources defined.
-#   Example `main.tf`:
-#     # The configuration for the `gcs` backend.
-#     terraform {
-#       backend "gcs" {
-#         bucket = "my-terraform-state-bucket"
-#         prefix = "prod"
-#       }
-#     }
-#
-#     # Example GCP resource.
-#     resource "google_compute_instance" "example" {
-#       name         = "my-instance"
-#       machine_type = "n1-standard-1"
-#       zone         = "us-central1-a"
-#     }
-#
-#
-# 2. Create a Google Cloud Service Account with appropriate Terraform permissions and store its JSON key as a GitHub secret (e.g. GCP_SA_KEY).
-#   Documentation:
-#     - https://cloud.google.com/docs/authentication/getting-started
-#     - https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
-#
-# 3. The workflow will automatically use GOOGLE_APPLICATION_CREDENTIALS environment variable for GCP authentication.
-#   The service account key should be stored as a GitHub secret named GCP_CREDENTIALS.
+# Continuous Deployment (CD) workflow for the "development" environment using Terraform and GitHub Actions.
 
 name: "🚀 CD: Development"
 
@@ -42,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   terraform:
@@ -63,7 +32,9 @@ jobs:
       # Authenticate with Google Cloud
       - uses: 'google-github-actions/auth@v3'
         with:
-          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+          create_credentials_file: true
+          workload_identity_provider: 'projects/59255497383/locations/global/workloadIdentityPools/github-actions-pool-1787166615/providers/github-provider'
+          service_account: 'github-actions-1787174527@gcp-development-503118.iam.gserviceaccount.com'
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
@@ -72,7 +43,7 @@ jobs:
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         run: terraform init
-
+        
       # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format
         run: terraform fmt -check

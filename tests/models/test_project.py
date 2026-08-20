@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from gcp.domain.models.project import Project
+from cli.domain.models.project import Project
 
 
 @pytest.mark.unit

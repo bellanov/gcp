@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-from gcp.domain.services.project import get_project
+from cli.domain.services.project import get_project
 
 
 @pytest.mark.integration
