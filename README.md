@@ -34,10 +34,6 @@ gcp
 │   └── domain
 │       ├── models
 │       └── services
-├── scripts
-│   ├── ci
-│   ├── gcp
-│   └── sa
 ├── terraform
 │   └── environments
 │       ├── development
@@ -54,7 +50,6 @@ gcp
 | _diagrams_  | Contains project architecture **diagrams**.                       |
 | _docs_      | Contains project **documentation**.                               |
 | _cli_       | Contains project **source code** for GCP tooling.                 |
-| _scripts_   | Contains **utility scripts** for managing the project.            |
 | _terraform_ | Contains **Terraform configurations** for different environments. |
 | _tests_     | Contains **unit and integration tests** for the project.          |
 
