@@ -4,7 +4,7 @@ Tools to bootstrap development on _Google Cloud Platform (GCP)_.
 
 # Environments
 
-The project is deployed across multiple environments, each of which has its own Terraform configuration.
+The project is deployed across multiple *environments*, each of which has its own Terraform configuration.
 
 | Environment | Description |
 | ----------- | ----------------------------------------------------------------- |
