@@ -6,6 +6,8 @@ name: "🧪 CI: Staging"
 on:
   pull_request:
     branches: ["main"]
+    paths:
+      - "cli"
 
 jobs:
   build:
