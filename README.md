@@ -1,6 +1,6 @@
 # gcp
 
-Tools to bootstrap development on _Google Cloud Platform (GCP)_.
+**Command Line Interface (CLI)** to bootstrap development on _Google Cloud Platform (GCP)_.
 
 # Environments
 
