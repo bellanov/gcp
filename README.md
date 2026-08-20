@@ -14,10 +14,6 @@ Development, staging, and production *environments* are supported. Each environm
 
 *Terraform* configurations are located in the `terraform/environments` directory.
 
-- development
-- staging
-- production
-
 # Architecture
 
 The project _architecture_ is summarized below.
