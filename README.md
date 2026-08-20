@@ -61,3 +61,8 @@ The project uses *[Direct Workload Identity Federation](https://github.com/googl
 In this setup, the Workload Identity Pool has direct IAM permissions on Google Cloud resources; there are no intermediate service accounts or keys. This is preferred since it directly authenticates GitHub Actions to Google Cloud without a proxy resource. However, not all Google Cloud resources support principalSet identities, and the resulting token has a maximum lifetime of 10 minutes. Please see the documentation for your Google Cloud service for more information.
 
 ![Direct Workload Identity Federation](https://raw.githubusercontent.com/google-github-actions/auth/refs/heads/main/docs/google-github-actions-auth-direct-workload-identity-federation.svg)
+
+| Workflow | Description |
+| -------- | ----------------------------------------------------------------- |
+| _cli-ci-\<environment\>_     | Continuous Integration workflow for testing and validating the `cli`.  |
+| _cd-\<environment\>_     | Continuous Deployment workflow for Terraform deployments.  |
