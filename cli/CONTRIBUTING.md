@@ -53,6 +53,6 @@ First, a local project environment needs to be created, then the project's modul
    # Create a pull request using the provided link after pushing
    remote: 
    remote: Create a pull request for 'my-new-feature' on GitHub by visiting:
-   remote:      https://github.com/bellanov/pythonic-programming/pull/new/my-new-feature
+   remote:      https://github.com/bellanov/google/pull/new/my-new-feature
 
    ```
