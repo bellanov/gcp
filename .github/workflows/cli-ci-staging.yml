@@ -6,6 +6,8 @@ name: "🧪 CI: Staging"
 on:
   pull_request:
     branches: ["main"]
+    paths:
+      - "cli"
 
 jobs:
   build:
@@ -23,7 +25,6 @@ jobs:
       GCP_FOLDER_NAME: ${{ vars.GCP_FOLDER_NAME }}
       GCP_FOLDER_ID: ${{ vars.GCP_FOLDER_ID }}
       GCP_ORGANIZATION_ID: ${{ vars.GCP_ORGANIZATION_ID }}
-      GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
 
     steps:
       - uses: actions/checkout@v7
