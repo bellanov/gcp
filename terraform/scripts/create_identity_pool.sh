@@ -6,8 +6,10 @@ TIMESTAMP=$(date +%s)
 
 gcloud config set project $GCP_PROJECT
 
-# Create a Workload Identity Pool
-gcloud iam workload-identity-pools create "github-actions-pool-$TIMESTAMP" \
-    --project="$GCP_PROJECT" \
-    --location="global" \
-    --display-name="GitHub Actions Pool"
+gcloud iam workload-identity-pools create "github" \
+  --location="global" \
+  --display-name="GitHub Actions Pool"
+
+gcloud iam workload-identity-pools describe "github" \
+  --location="global" \
+  --format="value(name)"

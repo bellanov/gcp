@@ -1,4 +1,4 @@
-# gcp
+# google
 
 **Command Line Interface (CLI)** to bootstrap development on _Google Cloud Platform (GCP)_.
 
