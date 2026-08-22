@@ -65,3 +65,19 @@ In this setup, the Workload Identity Pool has direct IAM permissions on Google C
 | -------- | ----------------------------------------------------------------- |
 | _cli-ci-\<environment\>_     | Continuous Integration workflow for testing and validating the `cli`.  |
 | _cd-\<environment\>_     | Continuous Deployment workflow for *Terraform* deployments.  |
+
+# Environment Variables
+
+The project relies on *environment variables* to execute. Rarely, these variables are hardcoded in the source code. Instead, they are set in the `.env.<environment>` files.
+
+```sh
+# Project
+GCP_PROJECT=gcp-development-12345
+GCP_ORGANIZATION=12345678901
+REPO=google
+
+# Workload Identity Federation (WIF)
+PROJECT_NUMBER=$(gcloud projects describe $GCP_PROJECT --format=value\(projectNumber\))
+SERVICE_ACCOUNT="github-actions@${GCP_PROJECT}.iam.gserviceaccount.com"
+WIF_PRINCIPAL="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/*"
+```

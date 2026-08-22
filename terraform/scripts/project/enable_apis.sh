@@ -4,4 +4,5 @@
 
 gcloud config set project $GCP_PROJECT
 
-gcloud services enable iamcredentials.googleapis.com
+gcloud services enable iamcredentials.googleapis.com \
+    iam.googleapis.com

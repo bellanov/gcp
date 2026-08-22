@@ -3,15 +3,10 @@ provider "google" {
   project = var.project_id
 }
 
-resource "google_project_service" "project" {
+resource "google_project_service" "service" {
   for_each = toset(local.services)
   project  = var.project_id
-  service  = each.value
-
-  timeouts {
-    create = "30m"
-    update = "40m"
-  }
+  service  = each.key
 }
 
 resource "google_service_account" "service_account" {
@@ -20,10 +15,7 @@ resource "google_service_account" "service_account" {
 }
 
 locals {
-
-  services = [
-    "iam.googleapis.com"
-  ]
+  services = []
 
   # TODO: Dynamically generate service accounts and roles based on a map of service accounts and their roles
   service_accounts = {
