@@ -2,7 +2,7 @@
 
 **Command Line Interface (CLI)** to bootstrap development on _Google Cloud Platform (GCP)_.
 
-# Environments
+## Environments
 
 The project is deployed across multiple *environments*, each of which has its own Terraform configuration.
 
@@ -14,13 +14,13 @@ The project is deployed across multiple *environments*, each of which has its ow
 
 *Terraform* configurations are located in the `terraform/environments` directory.
 
-# Architecture
+## Architecture
 
 The project _architecture_ is summarized below.
 
 ![Project Architecture](./diagrams/Project.svg)
 
-# Project Structure
+## Project Structure
 
 The project _structure_ is summarized below.
 
@@ -53,7 +53,7 @@ gcp
 | _cli_       | Contains project **source code** for GCP tooling.                 |
 | _terraform_ | Contains **Terraform configurations** for different environments. |
 
-# Workload Identity Federation
+## Workload Identity Federation
 
 The project uses *[Direct Workload Identity Federation](https://github.com/google-github-actions/auth?tab=readme-ov-file#preferred-direct-workload-identity-federation)* to manage identities and access across different environments.
 
@@ -66,7 +66,7 @@ In this setup, the Workload Identity Pool has direct IAM permissions on Google C
 | _cli-ci-\<environment\>_     | Continuous Integration workflow for testing and validating the `cli`.  |
 | _cd-\<environment\>_     | Continuous Deployment workflow for *Terraform* deployments.  |
 
-# Environment Variables
+## Environment Variables
 
 The project relies on *environment variables* to execute. Rarely, these variables are hardcoded in the source code. Instead, they are set in the `.env.<environment>` files.
 
