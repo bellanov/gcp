@@ -6,7 +6,7 @@ TIMESTAMP=$(date +%s)
 
 gcloud config set project $GCP_PROJECT
 
-gcloud storage buckets create gs://${GCP_PROJECT}-${TIMESTAMP} \
+gcloud storage buckets create gs://${GCP_PROJECT} \
     --default-storage-class=STANDARD \
     --location=US \
     --uniform-bucket-level-access \

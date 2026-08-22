@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-from cli.domain.services.folder import get_folder, get_folders_for_organization
+from cli.services.folder import get_folder, get_folders_for_organization
 
 GCP_FOLDER_ID = os.getenv("GCP_FOLDER_ID")
 GCP_FOLDER_NAME = os.getenv("GCP_FOLDER_NAME")

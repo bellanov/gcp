@@ -32,9 +32,8 @@ jobs:
       # Authenticate with Google Cloud
       - uses: 'google-github-actions/auth@v3'
         with:
-          create_credentials_file: true
-          workload_identity_provider: 'projects/59255497383/locations/global/workloadIdentityPools/github-actions-pool-1787166615/providers/github-provider'
-          service_account: 'github-actions-1787174527@gcp-development-503118.iam.gserviceaccount.com'
+          project_id: 'gcp-development-503118'
+          workload_identity_provider: 'projects/59255497383/locations/global/workloadIdentityPools/github/providers/google'
 
       # Install the latest version of Terraform CLI
       - name: Setup Terraform
@@ -57,8 +56,3 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
-
-      # Clean up credentials file
-      - name: Cleanup credentials
-        if: always()
-        run: rm -f /tmp/gcp-key.json

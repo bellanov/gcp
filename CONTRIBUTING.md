@@ -20,64 +20,12 @@ Please follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 4. Submit a PR with a detailed description.
 
 ## License
-By contributing, you agree that your contributions will be licensed under [License].
+By contributing, you agree that your contributions will be licensed under [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
 
 ## Development Workflow
 
-First, a local project environment needs to be created, then the project's modules will be installed into locally into a virtual environment.
+There various contributing guides for each project. Please refer to the contributing guide for the specific project you are interested in contributing to.
 
-1. Clone the repository.
-
-   ```sh
-   git clone https://github.com/bellanov/gcp.git
-   cd gcp
-   ```
-
-2. Create a virtual environment. 
-
-    **Virtual Environments** enable you isolate installations of *Python*, so you are able to test your changes against multiple Python versions. They also help you avoid polluting the default Python installation.
-
-   ```sh
-   # Create Virtual Environment
-   python3 -m venv .venv
-
-   # Activate Virtual Environment
-   source .venv/bin/activate
-
-   # Install all dependencies (runtime and development)
-   scripts/ci/install.sh
-
-   # Deactivate Virtual Environment
-   deactivate
-   ```
-
-3. Make your changes and open a **Pull Request**.
-
-   ```sh
-   # Create a branch to isolate your changes
-   git branch my-new-feature
-
-   # Hop onto the branch to add your changes
-   git checkout my-new-feature
-
-   # Make your changes and commit them
-   git add .
-   git commit -m "Added My New Feature"
-
-   # Push the changes to your branch (first push)
-   git push --set-upstream origin my-new-feature
-
-   # All future pushes
-   git push
-
-   # Create a pull request using the provided link after pushing
-   remote: 
-   remote: Create a pull request for 'my-new-feature' on GitHub by visiting:
-   remote:      https://github.com/bellanov/pythonic-programming/pull/new/my-new-feature
-
-   # Tag the changes, if relevant
-   git tag -a "0.1.0" -m "Version 0.1.0"
-
-   # Push the tags
-   git push --follow-tags
-   ```
+| Project | Contributing Guide |
+| ------- | ------------------ |
+| _cli_   | [Contributing to `cli`](cli/CONTRIBUTING.md) |
