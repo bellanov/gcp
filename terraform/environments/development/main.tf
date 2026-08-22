@@ -6,10 +6,6 @@ provider "google" {
 resource "google_service_account" "service_account" {
   account_id   = "developer"
   display_name = "Service Account for local development"
-
-  depends_on = [
-    google_project_service.service
-  ]
 }
 
 locals {
