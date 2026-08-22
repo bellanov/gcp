@@ -34,14 +34,15 @@ gcp
 │   └── domain
 │       ├── models
 │       └── services
+│   └──  tests
+│       ├── models
+│       └── services
 ├── terraform
 │   └── environments
 │       ├── development
 │       ├── production
 │       └── staging
-└── tests
-    ├── models
-    └── services
+
 ```
 
 | Environment | Description                                                       |
@@ -51,8 +52,6 @@ gcp
 | _docs_      | Contains project **documentation**.                               |
 | _cli_       | Contains project **source code** for GCP tooling.                 |
 | _terraform_ | Contains **Terraform configurations** for different environments. |
-| _tests_     | Contains **unit and integration tests** for the project.          |
-
 
 # Workload Identity Federation
 
