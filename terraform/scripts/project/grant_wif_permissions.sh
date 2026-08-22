@@ -13,7 +13,7 @@ gcloud iam service-accounts add-iam-policy-binding "$SERVICE_ACCOUNT" \
   --role="roles/iam.workloadIdentityUser" \
   --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/attribute.repository/${REPO}"
 
-# Grant permissions to access the project storage bucket
+# Grant permissions to access Terraform state
 gcloud storage buckets add-iam-policy-binding "gs://$GCP_PROJECT" \
     --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/*" \
     --role="roles/storage.objectUser"
