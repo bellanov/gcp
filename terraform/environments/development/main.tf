@@ -5,8 +5,8 @@ provider "google" {
 
 resource "google_project_service" "project_services" {
   for_each = toset(local.services)
-  project = var.project_id
-  service = each.key
+  project  = var.project_id
+  service  = each.key
 }
 
 resource "google_service_account" "service_account" {
