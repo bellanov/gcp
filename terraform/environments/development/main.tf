@@ -5,8 +5,8 @@ provider "google" {
 
 resource "google_project_service" "project" {
   for_each = toset(local.services)
-  project = var.project_id
-  service = each.value
+  project  = var.project_id
+  service  = each.value
 
   timeouts {
     create = "30m"
