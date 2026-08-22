@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Authenticate GitHub Actions pipeline.
+# Grant permissions to the Workload Identity User.
 
 gcloud config set project $GCP_PROJECT
 
@@ -11,7 +11,7 @@ gcloud iam service-accounts add-iam-policy-binding "$SERVICE_ACCOUNT" \
   --role="roles/iam.workloadIdentityUser" \
   --member="principalSet://iam.googleapis.com/${WORKLOAD_IDENTITY_POOL_ID}/attribute.repository/${REPO}"
 
-# Grant storage permissions to the service account itself (project-level)
-gcloud projects add-iam-policy-binding "$GCP_PROJECT" \
-  --role="roles/storage.folderAdmin" \
-  --member="serviceAccount:$SERVICE_ACCOUNT"
+gcloud storage buckets add-iam-policy-binding "gs://$GCP_PROJECT" \
+    --member="principalSet://iam.googleapis.com/projects/<PROJECT_NUMBER>/locations/global/workloadIdentityPools/<POOL_ID>/*" \
+    --role="roles/storage.objectUser"
+

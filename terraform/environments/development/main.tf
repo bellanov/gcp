@@ -1,6 +1,6 @@
 
 provider "google" {
-  project = "gcp-development-503118-1787174368"
+  project = "gcp-development-503118"
 }
 
 resource "google_service_account" "service_account" {
