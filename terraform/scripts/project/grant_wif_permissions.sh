@@ -10,10 +10,6 @@
 
 gcloud config set project $GCP_PROJECT
 
-PROJECT_NUMBER=$(gcloud projects describe $GCP_PROJECT --format=value\(projectNumber\))
-SERVICE_ACCOUNT="github-actions@${GCP_PROJECT}.iam.gserviceaccount.com"
-WIF_PRINCIPAL="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/*"
-
 # Grant permissions for API management
 gcloud projects add-iam-policy-binding $GCP_PROJECT \
   --member="${WIF_PRINCIPAL}" \
