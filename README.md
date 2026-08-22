@@ -33,7 +33,7 @@ gcp
 ├── cli
 │   └── domain
 │       ├── models
-│       └── services
+│   └──  services
 │   └──  tests
 │       ├── models
 │       └── services
