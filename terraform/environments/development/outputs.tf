@@ -1,5 +1,5 @@
 
 output "services" {
   description = "List of enabled services"
-  value       = resource.google_project_service.service[*].service
+  value       = { for service in resource.google_project_service.service : service.id => service }
 }
