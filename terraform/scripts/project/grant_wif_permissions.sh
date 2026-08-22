@@ -4,14 +4,16 @@
 
 gcloud config set project $GCP_PROJECT
 
-SERVICE_ACCOUNT="github-actions-1787174527@${GCP_PROJECT}.iam.gserviceaccount.com"
+PROJECT_NUMBER=$(gcloud projects describe $GCP_PROJECT --format=value\(projectNumber\))
+SERVICE_ACCOUNT="github-actions@${GCP_PROJECT}.iam.gserviceaccount.com"
 
-# Grant workload identity user role to allow GitHub Actions to impersonate the service account
+
+# Grant permissions to impersonate the service account
 gcloud iam service-accounts add-iam-policy-binding "$SERVICE_ACCOUNT" \
   --role="roles/iam.workloadIdentityUser" \
-  --member="principalSet://iam.googleapis.com/${WORKLOAD_IDENTITY_POOL_ID}/attribute.repository/${REPO}"
+  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/attribute.repository/${REPO}"
 
+# Grant permissions to access the project storage bucket
 gcloud storage buckets add-iam-policy-binding "gs://$GCP_PROJECT" \
-    --member="principalSet://iam.googleapis.com/projects/<PROJECT_NUMBER>/locations/global/workloadIdentityPools/<POOL_ID>/*" \
+    --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${WORKLOAD_IDENTITY_POOL}/*" \
     --role="roles/storage.objectUser"
-
